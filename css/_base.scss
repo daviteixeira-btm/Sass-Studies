@@ -1,0 +1,32 @@
+//variaveis
+$text-color: red;
+
+// mixins
+@mixin box-shadow($color){
+    box-shadow: 3px 3px 4px 1px $color;
+}
+
+body {
+    background-color: #7159c1;
+    color: $text-color;
+}
+
+// encadeamento e escopo
+.container {
+    // include do box shadow pelo mixin
+    @include box-shadow(rgba(0,0,0,0.6));
+
+    width: 200px;
+    height: 200px;
+    background-color: gray;
+
+    $text-color2: black;
+    
+    p {
+        background-color: white;
+        height: 100px;
+        width: 100px;
+        @include box-shadow(rgba(0,0,0,0.6));
+        color: $text-color2;
+    }
+}
