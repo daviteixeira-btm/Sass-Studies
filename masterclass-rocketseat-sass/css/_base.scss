@@ -1,4 +1,10 @@
-$primary-color: #7159c1;
+$primary-color: #b3170b;
+
+.flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 @mixin boundaries($isAuto: true) {
     width: 90%;
@@ -6,6 +12,15 @@ $primary-color: #7159c1;
 
     @if $isAuto {
         margin: auto;
+    }
+}
+
+@function set-text-color($color){
+    @if lightness($color) > 70{
+        @return #333;
+    }
+    @else {
+        @return white;
     }
 }
 
